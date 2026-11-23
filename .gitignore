@@ -73,3 +73,12 @@ yarn-error.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Environment variables (Yönerge kuralı)
+.env
+.env*.local
+
+# Temporary local files
+tempCodeRunnerFile.js
+çalışma.js
+sdk.dir*.txt

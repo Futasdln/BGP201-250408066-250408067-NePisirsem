@@ -1,97 +1,99 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# NePişirsem 🍲
 
-# Getting Started
+> BGP 201 Mobil Programlama Dersi Dönem Projesi
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## 👥 Proje ve Öğrenci Bilgileri
+- **Ders Adı:** BGP 201 Mobil Programlama
+- **Proje Adı:** NePişirsem
+- **Grup Üyeleri ve Görev Dağılımı (Yönerge Bölüm 3.7):**
+  - **1. Geliştirici (SİZ):** Frontend & UI/UX Geliştiricisi - *Öğrenci No: 250408066*
+    - **Sorumluluk Alanı:** Mobil Arayüz & Kullanıcı Deneyimi (UI/UX)
+    - **Ekran Tasarımları:** Login, Register, Home, Kiler (Pantry), Akıllı Arama (RecipeSearch), Tarif Detay (RecipeDetail), Alışveriş Listesi (ShoppingList), Profil & Ayarlar (Profile).
+    - **Bileşen & UX:** Navigasyon (Stack & Tab), Form Giriş Kontrolleri (Regex Validasyon), FlatList Performansı, Açık/Koyu Tema (Dark Mode) ve Ön Yüz REST API Veri Bağlantıları.
+  - **2. Geliştirici:** Backend, Veri & Mimari Geliştiricisi - *Öğrenci No: 250408067*
+    - **Sorumluluk Alanı:** Arka Yüz Servisleri, Veritabanı Mimarisi & Eşleşme Algoritmaları
+    - **Veri & API:** İlişkisel Veritabanı (PostgreSQL / Firestore), JWT Kimlik Doğrulama & Yetkilendirme Servisleri, DTO/Entity Veri Modelleri ve API Uç Noktaları.
+    - **İş Mantığı:** Kilerdeki malzemelere göre tarif uygunluk yüzdesi hesaplayan eşleşme sorguları ve çevrimdışı önbellekleme (Caching/Sync).
+- **Kategori:** Yemek ve Tarif (Malzemeye Göre Tarif Bulma)
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+---
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## 🎯 Uygulamanın Amacı
+Kullanıcıların evlerindeki kiler ve buzdolabı malzemelerini kaydederek yapabilecekleri en uygun yemek tariflerini eşleşme yüzdesiyle bulmalarını sağlayan, gıda israfını önleyen ve eksik malzemelerden otomatik alışveriş listesi oluşturan akıllı mobil uygulama.
 
-```sh
-# Using npm
-npm start
+---
 
-# OR using Yarn
-yarn start
+## 🚀 Özellik Listesi (MVP)
+- **Malzeme Bazlı Akıllı Tarif Eşleştirme:** Kilerdeki malzemelere göre tariflerin %100, %75 vb. eşleşme oranlarıyla listelenmesi.
+- **Kiler / Buzdolabı Yönetimi:** Evdeki malzemelerin dinamik olarak eklenmesi, miktar kontrolü ve silinmesi.
+- **Detaylı Tarif Sayfası:** Hazırlama süresi, porsiyon, zorluk derecesi, adım adım tarif akışı ve görsel gösterimi.
+- **Eksik Malzeme & Otomatik Alışveriş Listesi:** Tarif detayında evde olmayan eksik malzemelerin tek tıkla alışveriş listesine aktarılması ve kontrolü.
+- **Dinamik Filtreleme & Arama:** Kategori, zorluk derecesi ve metin bazlı anlık arama.
+- **Kullanıcı Giriş & Kayıt Formu:** E-posta/şifre doğrulaması ve regex hata kontrolleri.
+- **Ek Özellik (Grup Şartı):** **Karanlık Tema (Dark Mode)** ve aydınlık tema arasında anlık geçiş desteği.
+
+---
+
+## 🛠️ Kullanılan Kütüphaneler ve API'ler
+- **Temel Platform:** React Native (CLI) + TypeScript
+- **Navigasyon:** `@react-navigation/native`, `@react-navigation/native-stack`, `@react-navigation/bottom-tabs`
+- **Ekran & Güvenli Alan:** `react-native-screens`, `react-native-safe-area-context`
+- **Harici REST API:** TheMealDB API (Yönergede 10. hafta için önerilen resmi API)
+- **Arka Uç:** Firebase (Authentication + Firestore)
+
+---
+
+## 📱 Ekranlar (En Az 7 Ekran Şartı)
+1. `LoginScreen` - Kullanıcı giriş ekranı ve doğrulama
+2. `RegisterScreen` - Kullanıcı kayıt formu
+3. `HomeScreen` - Öne çıkan tarifler, kategoriler ve arama
+4. `PantryScreen` - Kiler & buzdolabı malzeme yönetimi
+5. `RecipeSearchScreen` - Malzeme eşleşme oranlı filtreleme
+6. `RecipeDetailScreen` - Detaylı tarif, adımlar ve tek tıkla alışverişe ekleme
+7. `ShoppingListScreen` - Dinamik alışveriş listesi ve tamamlama
+8. `ProfileScreen` - Profil, tema seçimi (Dark Mode) ve oturum kapatma
+
+---
+
+## 💻 Kurulum ve Çalıştırma Adımları
+
+### 1. Bağımlılıkları Yükleme
+```bash
+npm install
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+### 2. TypeScript Derleme Kontrolü
+```bash
+npx tsc --noEmit
 ```
 
-### iOS
+### 3. Uygulamayı Başlatma
+```bash
+# Metro sunucusunu başlatmak için:
+npx react-native start
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+# Android cihazda/emülatörde çalıştırmak için:
+npx react-native run-android
 ```
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
-```
+## 📸 Ekran Görüntüleri
+*(En az 5 ekran görüntüsü `docs/` klasörüne eklenecektir)*
+- `docs/screenshots/01_login.png`
+- `docs/screenshots/02_home.png`
+- `docs/screenshots/03_pantry.png`
+- `docs/screenshots/04_recipe_detail.png`
+- `docs/screenshots/05_shopping_list.png`
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+---
 
-```sh
-# Using npm
-npm run ios
+## 🎥 Demo Videosu
+- Video bağlantısı: `docs/demo-video.mp4` (veya YouTube linki)
 
-# OR using Yarn
-yarn ios
-```
+---
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 🤖 Yapay Zekâ Kullanım Beyanı
+Bu projede arayüz bileşenlerinin iskelet tasarımı, tema şablonu ve navigasyon mimarisinin yapılandırılmasında yapay zekâ araçlarından (Google DeepMind Antigravity) kod mimarisi ve şablon oluşturma yardımcısı olarak faydalanılmıştır. Tüm iş mantığı, ekran akışları ve kod yapısı tarafımızca incelenmiş, test edilmiş ve proje yönergesine uygun hale getirilmiştir.
